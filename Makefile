@@ -68,13 +68,13 @@ $(EXEC): $(OBJS)
 
 test: tests/main
 ifeq ($(processor),$(filter $(processor),rv32 rv64))
-	$(CC) $(ARCH_CFLAGS) -c add.h
+	$(CC) $(ARCH_CFLAGS) -c neon2rvv.h
 endif
 	$(SIMULATOR) $(SIMULATOR_FLAGS) $(PROXY_KERNEL) $^
 
 build-test: tests/main
 ifeq ($(processor),$(filter $(processor),rv32 rv64))
-	$(CC) $(ARCH_CFLAGS) -c add.h
+	$(CC) $(ARCH_CFLAGS) -c neon2rvv.h
 endif
 
 format:
@@ -84,10 +84,10 @@ format:
 
 .PHONY: clean check format
 
-clean:
+#clean:
 	$(RM) $(OBJS) $(EXEC) $(deps) neon2rvv.h.gch
 
-clean-all: clean
+#clean-all: clean
 	$(RM) *.log
 
 -include $(deps)
