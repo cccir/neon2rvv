@@ -82,7 +82,7 @@ format:
 	@if ! hash clang-format; then echo "clang-format is required to indent"; fi
 	clang-format -i neon2rvv.h tests/*.cpp tests/*.h
 
-.PHONY: clean check format
+.PHONY: check format
 
 #clean:
 	$(RM) $(OBJS) $(EXEC) $(deps) neon2rvv.h.gch
